@@ -1,228 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jenkins Practice Application</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 100%;
-            padding: 40px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 20px;
-        }
-
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-        }
-
-        .content {
-            margin: 30px 0;
-        }
-
-        .section {
-            margin: 20px 0;
-        }
-
-        .section h2 {
-            color: #667eea;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        .section p {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .features {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .features li {
-            color: #555;
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .status-box {
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .status-box strong {
-            color: #667eea;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin: 5px 5px 5px 0;
-        }
-
-        .badge.success {
-            background: #22c55e;
-        }
-
-        .badge.info {
-            background: #3b82f6;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9em;
-        }
-
-        .tech-stack {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            .tech-stack {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreyas — Portfolio</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+         background:#fafafa; color:#1a1a1a; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+  header { padding:80px 0 40px; }
+  header h1 { font-size:2.6rem; font-weight:600; letter-spacing:-0.02em; }
+  header .role { color:#555; font-size:1.2rem; margin-top:8px; }
+  nav { margin-top:24px; }
+  nav a { color:#0066cc; text-decoration:none; margin-right:20px; font-size:0.95rem; }
+  nav a:hover { text-decoration:underline; }
+  section { padding:36px 0; border-top:1px solid #ececec; }
+  h2 { font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:#888; font-weight:600; margin-bottom:18px; }
+  p { color:#333; margin-bottom:14px; }
+  .skills { display:flex; flex-wrap:wrap; gap:10px; }
+  .skills span { background:#fff; border:1px solid #e2e2e2; border-radius:6px; padding:6px 14px; font-size:0.9rem; color:#444; }
+  .project { margin-bottom:22px; }
+  .project h3 { font-size:1.1rem; font-weight:600; margin-bottom:4px; }
+  .project p { color:#555; font-size:0.95rem; margin-bottom:0; }
+  .contact a { color:#0066cc; text-decoration:none; }
+  footer { padding:40px 0 60px; color:#aaa; font-size:0.85rem; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 Jenkins Practice App</h1>
-            <p class="subtitle">Containerized Application for CI/CD Learning</p>
-        </header>
-
-        <div class="content">
-            <div class="section">
-                <h2>Application Overview</h2>
-                <p>This is a sample web application designed for Jenkins CI/CD pipeline practice and learning. 
-                   It demonstrates containerization using Docker and integration with Jenkins for automated builds and deployments.</p>
-            </div>
-
-            <div class="status-box">
-                <strong>Status:</strong> ✓ Application is running successfully
-            </div>
-
-            <div class="section">
-                <h2>Key Features</h2>
-                <ul class="features">
-                    <li>Simple and clean web interface</li>
-                    <li>Fully containerized with Docker</li>
-                    <li>Ready for Jenkins CI/CD integration</li>
-                    <li>Lightweight and fast deployment</li>
-                    <li>Multi-stage Docker build support</li>
-                    <li>Environment-based configuration</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Tech Stack</h2>
-                <div class="tech-stack">
-                    <div class="badge info">Docker</div>
-                    <div class="badge info">Jenkins</div>
-                    <div class="badge info">HTML5</div>
-                    <div class="badge info">CSS3</div>
-                    <div class="badge success">Nginx</div>
-                    <div class="badge success">CI/CD</div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Build Information</h2>
-                <div class="status-box">
-                    <p><strong>Build Time:</strong> <span id="buildTime">Loading...</span></p>
-                    <p><strong>Environment:</strong> <span id="environment">Docker Container</span></p>
-                    <p><strong>Version:</strong> 1.0.0</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Getting Started</h2>
-                <p>Follow the README.md file for detailed instructions on:</p>
-                <ul class="features">
-                    <li>Building the Docker image</li>
-                    <li>Running the container locally</li>
-                    <li>Pushing to Docker registry</li>
-                    <li>Jenkins pipeline integration</li>
-                </ul>
-            </div>
-        </div>
-
-        <footer>
-            <p>Jenkins Practice Application | Docker Containerized | Built for CI/CD Learning</p>
-            <p>© 2026 - Learning DevOps & Jenkins</p>
-        </footer>
-    </div>
-
-    <script>
-        // Display current build time
-        document.getElementById('buildTime').textContent = new Date().toLocaleString();
-    </script>
+<div class="wrap">
+  <header>
+    <h1>Shreyas Bonthala</h1>
+    <p class="role">Aspiring DevOps Engineer</p>
+    <nav><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+  </header>
+  <section id="about">
+    <h2>About</h2>
+    <p>I build and automate deployment pipelines. I'm currently deep in hands-on DevOps — containerizing applications with Docker, automating builds and deployments with Jenkins, and running everything on AWS.</p>
+    <p>I like turning a manual, error-prone process into something that just runs on its own with a single push.</p>
+  </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills"><span>Docker</span><span>Jenkins</span><span>AWS EC2</span><span>Git &amp; GitHub</span><span>Linux</span><span>CI/CD</span><span>Nginx</span><span>Bash</span></div>
+  </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project"><h3>Automated CI/CD Pipeline</h3><p>A git push triggers Jenkins to pull the code, build a Docker image, and deploy it as a running container on AWS EC2 — no manual steps.</p></div>
+    <div class="project"><h3>Containerized Web App</h3><p>Packaged a static site behind Nginx in Docker, with port mapping and automated redeploys on every change.</p></div>
+  </section>
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>GitHub: <a href="https://github.com/Shreyasgit28">github.com/Shreyasgit28</a></p>
+    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+  </section>
+  <footer>Built and deployed automatically via Jenkins &amp; Docker.</footer>
+</div>
 </body>
 </html>
